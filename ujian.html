@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Siswa - Tryout USDA PAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-light: #f0f9ff;
+            --sky-blue: #0ea5e9;
+            --mint-green: #10b981;
+            --card-white: #ffffff;
+            --text-dark: #1e293b;
+        }
+
+        html, body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dcfce7 100%);
+            color: var(--text-dark);
+            /* Proteksi: Mencegah seleksi teks */
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding: 3vh 5vw;
+            box-sizing: border-box;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 15vh;
+        }
+
+        .branding h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0;
+            color: var(--sky-blue);
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px #fff;
+        }
+
+        .branding p {
+            margin: 5px 0 0;
+            color: var(--mint-green);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .clock-container {
+            text-align: right;
+            background: var(--card-white);
+            padding: 12px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.1);
+            border: 2px solid var(--sky-blue);
+        }
+
+        #clock {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--sky-blue);
+            margin: 0;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .label-siswa {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--sky-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .label-siswa::after, .label-siswa::before {
+            content: '';
+            height: 4px;
+            background: var(--sky-blue);
+            opacity: 0.2;
+            flex: 1;
+            border-radius: 10px;
+        }
+
+        .siswa-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .card-school {
+            background: var(--card-white);
+            border-radius: 24px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 25px 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .card-school:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.15);
+            border-color: var(--sky-blue);
+        }
+
+        .card-school span { font-size: 2.5rem; margin-bottom: 12px; }
+        .card-school strong { color: var(--text-dark); font-size: 1rem; font-weight: 700; line-height: 1.3; }
+
+        .footer { height: 6vh; display: flex; align-items: center; justify-content: center; color: var(--sky-blue); font-size: 0.9rem; font-weight: 600; opacity: 0.7; }
+
+        /* Wadah Iframe */
+        #iframe-container {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: 9999;
+            background-color: #ffffff;
+        }
+
+        #exam-frame { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+<div class="wrapper">
+    <header class="header-container">
+        <div class="branding">
+            <h1>PORTAL SISWA</h1>
+            <p>Tryout USDA PAI • Kapanewon Srandakan</p>
+        </div>
+        <div class="clock-container">
+            <div id="clock">00:00:00</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="label-siswa">Akses Ujian Siswa</div>
+        <div class="siswa-grid">
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbwgnyh-Grmkx9rGk6Kmb-O0LyyjaBX0jcMQY50A9ktOZhUjEpHnNTYrKi1Nqi0HQbM/exec" onclick="bukaLayarPenuh(event, this.href)" class="card-school"><span>📝</span><strong>SD Negeri 1 Godegan</strong></a>
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbxMwiIyJDP6me63tvNUaP35HXQBkQGwbeM9obRheqsbRsP4cLtDX6_5zJaDo2fvzniI_g/exec" onclick="bukaLayarPenuh(event, this.href)" class="card-school"><span>📝</span><strong>SD Negeri Proketen</strong></a>
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbw7jW4eNcRrMw9pauwnY7E0mJBg7rjN_D6Rz5nrVSebXcqMqwFxeiPZrwA8ujmVr3zqRw/exec" onclick="bukaLayarPenuh(event, this.href)" class="card-school"><span>📝</span><strong>SD Negeri Talkondo</strong></a>
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbwgnyh-Grmkx9rGk6Kmb-O0LyyjaBX0jcMQY50A9ktOZhUjEpHnNTYrKi1Nqi0HQbM/exec" onclick="bukaLayarPenuh(event, this.href)" class="card-school"><span>📝</span><strong>SD Negeri 1 Srandakan</strong></a>
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbxMwiIyJDP6me63tvNUaP35HXQBkQGwbeM9obRheqsbRsP4cLtDX6_5zJaDo2fvzniI_g/exec" onclick="bukaLayarPenuh(event, this.href)" class="card-school"><span>📝</span><strong>SD Negeri 2 Srandakan</strong></a>
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbwU7jaYoPxnr2ubofyjVkD0qkQbWxlJ6et0HzfBd06HUEe1WxKIDfiJ5DMic6HQd6WK/exec" onclick="bukaLayarPenuh(event, this.href)" class="card-school"><span>📝</span><strong>SD Negeri Mangiran</strong></a>
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbxBTXzG1IY2VrcTLk-9Rz_5p3XDVMeU3KgqFzv474quGeBMV6_xJEgPXs543rVNAUEr/exec" onclick="bukaLayarPenuh(event, this.href)" class="card-school"><span>📝</span><strong>SD Negeri Gunungsaren</strong></a>
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbwgnyh-Grmkx9rGk6Kmb-O0LyyjaBX0jcMQY50A9ktOZhUjEpHnNTYrKi1Nqi0HQbM/exec" onclick="bukaLayarPenuh(event, this.href)" class="card-school"><span>📝</span><strong>SD Negeri Koripan</strong></a>
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbxBTXzG1IY2VrcTLk-9Rz_5p3XDVMeU3KgqFzv474quGeBMV6_xJEgPXs543rVNAUEr/exec" onclick="bukaLayarPenuh(event, this.href)" class="card-school"><span>📝</span><strong>SD Negeri Krajan</strong></a>
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbwU7jaYoPxnr2ubofyjVkD0qkQbWxlJ6et0HzfBd06HUEe1WxKIDfiJ5DMic6HQd6WK/exec" onclick="bukaLayarPenuh(event, this.href)" class="card-school"><span>📝</span><strong>SD IT Al-Aysar</strong></a>
+        </div>
+    </main>
+
+    <footer class="footer">&copy; 2026 Ardika Riski Rahmawan, S.Pd. • SD Negeri 1 Godegan</footer>
+</div>
+
+<div id="iframe-container"><iframe id="exam-frame" src=""></iframe></div>
+
+<script>
+    // 1. Update Jam
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('clock').innerText = now.getHours().toString().padStart(2, '0') + ":" + 
+            now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0');
+    }
+    setInterval(updateClock, 1000); updateClock();
+
+    // 2. Buka Fullscreen & Tetap di Iframe
+    function bukaLayarPenuh(event, url) {
+        event.preventDefault(); 
+        let elemen = document.documentElement;
+        if (elemen.requestFullscreen) { elemen.requestFullscreen(); }
+        else if (elemen.webkitRequestFullscreen) { elemen.webkitRequestFullscreen(); }
+
+        document.getElementById('iframe-container').style.display = 'block';
+        document.getElementById('exam-frame').src = url;
+    }
+
+    // 3. KEAMANAN: Blokir F12, Inspect, dll.
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123) return false;
+        if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) return false;
+        if(e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'S'.charCodeAt(0))) return false;
+    };
+
+    // 4. KEAMANAN: Blokir Copy-Paste
+    document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('cut', e => e.preventDefault());
+    document.addEventListener('paste', e => e.preventDefault());
+</script>
+
+</body>
+</html>
