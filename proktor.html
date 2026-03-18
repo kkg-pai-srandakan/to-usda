@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Proktor - Tryout USDA PAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #022c22;
+            --emerald: #10b981;
+            --card-white: #ffffff;
+            --text-dark: #064e3b;
+        }
+
+        html, body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            background-image: radial-gradient(circle at top right, #064e3b, var(--bg-deep));
+            color: #ffffff;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding: 3vh 5vw;
+            box-sizing: border-box;
+        }
+
+        .branding {
+            height: 15vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .branding h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .branding p {
+            margin: 5px 0 0;
+            opacity: 0.7;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .label-proktor {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--emerald);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .label-proktor::after, .label-proktor::before {
+            content: '';
+            height: 1px;
+            background: rgba(16, 185, 129, 0.3);
+            flex: 1;
+        }
+
+        .proktor-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .card-school {
+            background: var(--card-white);
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+        }
+
+        .card-school:hover {
+            transform: translateY(-5px);
+            background: #f0fdf4;
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .card-school span { font-size: 1.8rem; margin-bottom: 8px; }
+        .card-school strong { color: var(--text-dark); font-size: 0.9rem; font-weight: 700; line-height: 1.2; }
+
+        .footer {
+            height: 6vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.4;
+            font-size: 0.8rem;
+        }
+
+        #iframe-container {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: 9999;
+            background: white;
+        }
+
+        #exam-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+<div class="wrapper">
+    <header class="branding">
+        <h1>PORTAL PROKTOR</h1>
+        <p>Kapanewon Srandakan • Bantul • DIY</p>
+    </header>
+
+    <main class="main-content">
+        <div class="label-proktor">Pilih Sekolah Proktor</div>
+        
+        <div class="proktor-grid">
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbzlS3kLwfuk30GEU3ZgHCP1BtOQokKabeWnI_DELH2eZjAMSvn2IZxvrvg8SNOexlKz/exec?p=proktor" onclick="bukaIframe(event, this.href)" class="card-school"><span>🏛️</span><strong>SD Negeri 1 Godegan</strong></a>
+            
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbzlS3kLwfuk30GEU3ZgHCP1BtOQokKabeWnI_DELH2eZjAMSvn2IZxvrvg8SNOexlKz/exec?p=proktor" onclick="bukaIframe(event, this.href)" class="card-school"><span>🏛️</span><strong>SD Negeri Proketen</strong></a>
+            
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbzlS3kLwfuk30GEU3ZgHCP1BtOQokKabeWnI_DELH2eZjAMSvn2IZxvrvg8SNOexlKz/exec?p=proktor" onclick="bukaIframe(event, this.href)" class="card-school"><span>🏛️</span><strong>SD Negeri Talkondo</strong></a>
+            
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbzlS3kLwfuk30GEU3ZgHCP1BtOQokKabeWnI_DELH2eZjAMSvn2IZxvrvg8SNOexlKz/exec?p=proktor" onclick="bukaIframe(event, this.href)" class="card-school"><span>🏛️</span><strong>SD Negeri 1 Srandakan</strong></a>
+            
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbzlS3kLwfuk30GEU3ZgHCP1BtOQokKabeWnI_DELH2eZjAMSvn2IZxvrvg8SNOexlKz/exec?p=proktor" onclick="bukaIframe(event, this.href)" class="card-school"><span>🏛️</span><strong>SD Negeri 2 Srandakan</strong></a>
+            
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbzlS3kLwfuk30GEU3ZgHCP1BtOQokKabeWnI_DELH2eZjAMSvn2IZxvrvg8SNOexlKz/exec?p=proktor" onclick="bukaIframe(event, this.href)" class="card-school"><span>🏛️</span><strong>SD Negeri Mangiran</strong></a>
+            
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbzlS3kLwfuk30GEU3ZgHCP1BtOQokKabeWnI_DELH2eZjAMSvn2IZxvrvg8SNOexlKz/exec?p=proktor" onclick="bukaIframe(event, this.href)" class="card-school"><span>🏛️</span><strong>SD Negeri Gunungsaren</strong></a>
+            
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbzlS3kLwfuk30GEU3ZgHCP1BtOQokKabeWnI_DELH2eZjAMSvn2IZxvrvg8SNOexlKz/exec?p=proktor" onclick="bukaIframe(event, this.href)" class="card-school"><span>🏛️</span><strong>SD Negeri Koripan</strong></a>
+            
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbzlS3kLwfuk30GEU3ZgHCP1BtOQokKabeWnI_DELH2eZjAMSvn2IZxvrvg8SNOexlKz/exec?p=proktor" onclick="bukaIframe(event, this.href)" class="card-school"><span>🏛️</span><strong>SD Negeri Krajan</strong></a>
+            
+            <a href="https://script.google.com/a/macros/sd1godegan.sch.id/s/AKfycbzlS3kLwfuk30GEU3ZgHCP1BtOQokKabeWnI_DELH2eZjAMSvn2IZxvrvg8SNOexlKz/exec?p=proktor" onclick="bukaIframe(event, this.href)" class="card-school"><span>🏛️</span><strong>SD IT Al-Aysar</strong></a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        &copy; 2026 Ardika Riski Rahmawan, S.Pd. • SD Negeri 1 Godegan
+    </footer>
+</div>
+
+<div id="iframe-container">
+    <iframe id="exam-frame" src=""></iframe>
+</div>
+
+<script>
+    function bukaIframe(event, url) {
+        event.preventDefault(); 
+        document.getElementById('iframe-container').style.display = 'block';
+        document.getElementById('exam-frame').src = url;
+    }
+
+    // KEAMANAN: Disable F12, Inspect, dll.
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123) return false;
+        if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) return false;
+        if(e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'S'.charCodeAt(0))) return false;
+    };
+
+    // KEAMANAN: Disable Copy-Paste
+    document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('cut', e => e.preventDefault());
+    document.addEventListener('paste', e => e.preventDefault());
+</script>
+
+</body>
+</html>
